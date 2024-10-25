@@ -423,7 +423,7 @@
         "1": 46
       },
       "flags": {},
-      "order": 26,
+      "order": 25,
       "mode": 0,
       "inputs": [
         {
@@ -464,7 +464,7 @@
         "1": 455.7359619140625
       },
       "flags": {},
-      "order": 27,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -573,7 +573,7 @@
         "1": 200
       },
       "flags": {},
-      "order": 23,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -650,46 +650,6 @@
       ]
     },
     {
-      "id": 267,
-      "type": "ShowText|pysssss",
-      "pos": {
-        "0": 3120,
-        "1": 2370
-      },
-      "size": {
-        "0": 308.0220031738281,
-        "1": 178.2832489013672
-      },
-      "flags": {},
-      "order": 22,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 590,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": null,
-          "shape": 6
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ShowText|pysssss"
-      },
-      "widgets_values": [
-        "",
-        "A blurred, indoor scene featuring a wooden desk cluttered with books, papers, a pen, a mobile phone, and other objects, with a computer monitor on top. In the background, there's a bookshelf filled with books and potted plants, and a window allowing natural light to illuminate the scene."
-      ]
-    },
-    {
       "id": 128,
       "type": "INPAINT_LoadInpaintModel",
       "pos": {
@@ -734,7 +694,7 @@
         "1": 474
       },
       "flags": {},
-      "order": 25,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -885,7 +845,6 @@
           "name": "caption",
           "type": "STRING",
           "links": [
-            590,
             611
           ],
           "slot_index": 2,
@@ -1006,7 +965,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 24,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -1496,14 +1455,6 @@
       "IMAGE"
     ],
     [
-      590,
-      265,
-      2,
-      267,
-      0,
-      "STRING"
-    ],
-    [
       594,
       268,
       0,
@@ -1594,14 +1545,14 @@
   ],
   "groups": [
     {
-      "title": "Hires.fix",
+      "title": "Object Detection",
       "bounding": [
-        2473,
-        1368,
-        2819,
-        1258
+        -590,
+        -910,
+        2347,
+        1404
       ],
-      "color": "#8A8",
+      "color": "#3f789e",
       "font_size": 24,
       "flags": {}
     },
@@ -1618,14 +1569,14 @@
       "flags": {}
     },
     {
-      "title": "Object Detection",
+      "title": "Hires.fix",
       "bounding": [
-        -590,
-        -910,
-        2347,
-        1404
+        2473,
+        1368,
+        2817,
+        1020
       ],
-      "color": "#3f789e",
+      "color": "#8A8",
       "font_size": 24,
       "flags": {}
     }
@@ -1633,10 +1584,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.28966437973668857,
+      "scale": 0.38554328942953275,
       "offset": [
-        -869.5085241468738,
-        -431.7517243496739
+        -724.1174994577788,
+        -737.9542417318639
       ]
     }
   },
