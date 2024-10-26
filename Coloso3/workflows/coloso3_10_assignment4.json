@@ -1,6 +1,6 @@
 {
   "last_node_id": 12,
-  "last_link_id": 13,
+  "last_link_id": 18,
   "nodes": [
     {
       "id": 8,
@@ -44,35 +44,30 @@
       "widgets_values": []
     },
     {
-      "id": 10,
-      "type": "ConditioningCombine",
+      "id": 12,
+      "type": "Reroute",
       "pos": {
-        "0": 558,
-        "1": 92
+        "0": 63,
+        "1": 616
       },
-      "size": {
-        "0": 247.2540283203125,
-        "1": 46
-      },
+      "size": [
+        75,
+        26
+      ],
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [
         {
-          "name": "conditioning_1",
-          "type": "CONDITIONING",
-          "link": 11
-        },
-        {
-          "name": "conditioning_2",
-          "type": "CONDITIONING",
+          "name": "",
+          "type": "*",
           "link": 12
         }
       ],
       "outputs": [
         {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
+          "name": "",
+          "type": "VAE",
           "links": [
             13
           ],
@@ -80,77 +75,16 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "ConditioningCombine"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 5,
-      "type": "EmptyLatentImage",
-      "pos": {
-        "0": 473,
-        "1": 609
-      },
-      "size": {
-        "0": 315,
-        "1": 106
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            2
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        1024,
-        1024,
-        1
-      ]
-    },
-    {
-      "id": 9,
-      "type": "SaveImage",
-      "pos": {
-        "0": 1504,
-        "1": 188
-      },
-      "size": {
-        "0": 421.4226989746094,
-        "1": 461.17474365234375
-      },
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 9
-        }
-      ],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "ComfyUI"
-      ]
+        "showOutputText": false,
+        "horizontal": false
+      }
     },
     {
       "id": 7,
       "type": "CLIPTextEncode",
       "pos": {
-        "0": 40,
-        "1": 370
+        "0": 50,
+        "1": 380
       },
       "size": {
         "0": 425.27801513671875,
@@ -171,7 +105,7 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            6
+            15
           ],
           "slot_index": 0
         }
@@ -180,14 +114,86 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "text, watermark,"
+        "text, watermark"
       ]
+    },
+    {
+      "id": 10,
+      "type": "InpaintModelConditioning",
+      "pos": {
+        "0": 576,
+        "1": 576
+      },
+      "size": {
+        "0": 239.00408935546875,
+        "1": 106
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 14
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 15
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 13
+        },
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 10
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            16
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            17
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            18
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InpaintModelConditioning"
+      },
+      "widgets_values": []
     },
     {
       "id": 4,
       "type": "CheckpointLoaderSimple",
       "pos": {
-        "0": -350,
+        "0": -340,
         "1": 460
       },
       "size": {
@@ -195,7 +201,7 @@
         "1": 98
       },
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -212,8 +218,7 @@
           "type": "CLIP",
           "links": [
             3,
-            5,
-            10
+            5
           ],
           "slot_index": 1
         },
@@ -221,7 +226,8 @@
           "name": "VAE",
           "type": "VAE",
           "links": [
-            8
+            8,
+            12
           ],
           "slot_index": 2
         }
@@ -230,83 +236,34 @@
         "Node name for S&R": "CheckpointLoaderSimple"
       },
       "widgets_values": [
-        "sd_xl_base_1.0.safetensors"
+        "Juggernaut-XL-inpainting.safetensors"
       ]
     },
     {
-      "id": 11,
-      "type": "CLIPTextEncode",
+      "id": 9,
+      "type": "SaveImage",
       "pos": {
-        "0": 43,
-        "1": -77
+        "0": 1451,
+        "1": 189
       },
       "size": {
-        "0": 422.84503173828125,
-        "1": 164.31304931640625
+        "0": 379.1275939941406,
+        "1": 467.6161804199219
       },
       "flags": {},
-      "order": 4,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 10
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
         }
       ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            11
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
+      "outputs": [],
+      "properties": {},
       "widgets_values": [
-        "lion,"
-      ]
-    },
-    {
-      "id": 6,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": 41,
-        "1": 155
-      },
-      "size": {
-        "0": 422.84503173828125,
-        "1": 164.31304931640625
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 3
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            12
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "a strawberry"
+        "ComfyUI"
       ]
     },
     {
@@ -332,17 +289,17 @@
         {
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 13
+          "link": 16
         },
         {
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 6
+          "link": 17
         },
         {
           "name": "latent_image",
           "type": "LATENT",
-          "link": 2
+          "link": 18
         }
       ],
       "outputs": [
@@ -359,13 +316,92 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        53,
+        63315477981817,
         "fixed",
-        20,
-        8,
-        "euler",
-        "normal",
+        30,
+        2,
+        "dpmpp_2m_sde",
+        "karras",
         1
+      ]
+    },
+    {
+      "id": 11,
+      "type": "LoadImage",
+      "pos": {
+        "0": 100,
+        "1": 796
+      },
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            11
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "real_boy_01.png",
+        "image"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 50,
+        "1": 185
+      },
+      "size": {
+        "0": 422.84503173828125,
+        "1": 164.31304931640625
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            14
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "afro"
       ]
     }
   ],
@@ -379,14 +415,6 @@
       "MODEL"
     ],
     [
-      2,
-      5,
-      0,
-      3,
-      3,
-      "LATENT"
-    ],
-    [
       3,
       4,
       1,
@@ -401,14 +429,6 @@
       7,
       0,
       "CLIP"
-    ],
-    [
-      6,
-      7,
-      0,
-      3,
-      2,
-      "CONDITIONING"
     ],
     [
       7,
@@ -436,45 +456,85 @@
     ],
     [
       10,
-      4,
-      1,
       11,
       0,
-      "CLIP"
+      10,
+      3,
+      "IMAGE"
     ],
     [
       11,
       11,
-      0,
+      1,
       10,
-      0,
-      "CONDITIONING"
+      4,
+      "MASK"
     ],
     [
       12,
+      4,
+      2,
+      12,
+      0,
+      "*"
+    ],
+    [
+      13,
+      12,
+      0,
+      10,
+      2,
+      "VAE"
+    ],
+    [
+      14,
       6,
+      0,
+      10,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      15,
+      7,
       0,
       10,
       1,
       "CONDITIONING"
     ],
     [
-      13,
+      16,
       10,
       0,
       3,
       1,
       "CONDITIONING"
+    ],
+    [
+      17,
+      10,
+      1,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      18,
+      10,
+      2,
+      3,
+      3,
+      "LATENT"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6830134553650706,
+      "scale": 0.6934334949441341,
       "offset": [
-        570.4065834379245,
-        286.39493112666
+        568.6550849401821,
+        16.587884106177718
       ]
     }
   },
