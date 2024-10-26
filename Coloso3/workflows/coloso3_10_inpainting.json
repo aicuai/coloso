@@ -44,33 +44,6 @@
       "widgets_values": []
     },
     {
-      "id": 9,
-      "type": "SaveImage",
-      "pos": {
-        "0": 1451,
-        "1": 189
-      },
-      "size": {
-        "0": 210,
-        "1": 270
-      },
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 9
-        }
-      ],
-      "outputs": [],
-      "properties": {},
-      "widgets_values": [
-        "ComfyUI"
-      ]
-    },
-    {
       "id": 12,
       "type": "Reroute",
       "pos": {
@@ -217,44 +190,6 @@
       "widgets_values": []
     },
     {
-      "id": 6,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": 50,
-        "1": 185
-      },
-      "size": {
-        "0": 422.84503173828125,
-        "1": 164.31304931640625
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 3
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            14
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "1girl, japanese, black hair, short hair, bob cut, bangs, casual dress, green background, looking at viewer, smile, portrait,"
-      ]
-    },
-    {
       "id": 4,
       "type": "CheckpointLoaderSimple",
       "pos": {
@@ -301,7 +236,72 @@
         "Node name for S&R": "CheckpointLoaderSimple"
       },
       "widgets_values": [
-        "RealVisXL_V5.0_Lightning_fp16.safetensors"
+        "Juggernaut-XL-inpainting.safetensors"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 50,
+        "1": 185
+      },
+      "size": {
+        "0": 422.84503173828125,
+        "1": 164.31304931640625
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            14
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "smile,"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": {
+        "0": 1451,
+        "1": 189
+      },
+      "size": [
+        379.12758030594,
+        467.6161760463468
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
       ]
     },
     {
@@ -356,9 +356,9 @@
       "widgets_values": [
         63315477981817,
         "fixed",
-        8,
+        30,
         2,
-        "dpmpp_sde",
+        "dpmpp_2m_sde",
         "karras",
         1
       ]
@@ -531,11 +531,11 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5730855330116851,
-      "offset": [
-        634.2893967055312,
-        4.609325987189637
-      ]
+      "scale": 0.6934334949441339,
+      "offset": {
+        "0": 486.8326416015625,
+        "1": -18.122997283935547
+      }
     }
   },
   "version": 0.4

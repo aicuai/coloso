@@ -55,7 +55,7 @@
         26
       ],
       "flags": {},
-      "order": 4,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -91,7 +91,7 @@
         "1": 180.6060791015625
       },
       "flags": {},
-      "order": 3,
+      "order": 4,
       "mode": 0,
       "inputs": [
         {
@@ -118,68 +118,18 @@
       ]
     },
     {
-      "id": 4,
-      "type": "CheckpointLoaderSimple",
-      "pos": {
-        "0": -340,
-        "1": 460
-      },
-      "size": {
-        "0": 315,
-        "1": 98
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            1
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            3,
-            5
-          ],
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            8,
-            12
-          ],
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "RealVisXL_V5.0_Lightning_fp16.safetensors"
-      ]
-    },
-    {
       "id": 11,
       "type": "LoadImage",
       "pos": {
         "0": -294,
         "1": 774
       },
-      "size": [
-        315,
-        314
-      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -207,104 +157,16 @@
       ]
     },
     {
-      "id": 13,
-      "type": "ImagePadForOutpaint",
-      "pos": {
-        "0": 136,
-        "1": 775
-      },
-      "size": {
-        "0": 315,
-        "1": 174
-      },
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 19
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            20
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": [
-            21
-          ],
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImagePadForOutpaint"
-      },
-      "widgets_values": [
-        0,
-        248,
-        0,
-        0,
-        124
-      ]
-    },
-    {
-      "id": 6,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": 50,
-        "1": 185
-      },
-      "size": {
-        "0": 422.84503173828125,
-        "1": 164.31304931640625
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 3
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            14
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "1girl, sky, clouds, blue sky, looking up, wind blowing through hair, sleeveless shirt, loose clothing, sunlight, peaceful expression, floating feeling, outdoors, natural light, standing, dynamic pose, solo, mid-air, light blue shirt, fluffy clouds, serene atmosphere, windy day, light brown hair, open space,"
-      ]
-    },
-    {
       "id": 10,
       "type": "InpaintModelConditioning",
       "pos": {
         "0": 558,
         "1": 576
       },
-      "size": [
-        239.0040903395095,
-        106
-      ],
+      "size": {
+        "0": 239.00408935546875,
+        "1": 106
+      },
       "flags": {},
       "order": 6,
       "mode": 0,
@@ -363,7 +225,8 @@
       ],
       "properties": {
         "Node name for S&R": "InpaintModelConditioning"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 9,
@@ -372,10 +235,10 @@
         "0": 1451,
         "1": 189
       },
-      "size": [
-        407.0419272328188,
-        464.89278306306915
-      ],
+      "size": {
+        "0": 407.04193115234375,
+        "1": 464.8927917480469
+      },
       "flags": {},
       "order": 9,
       "mode": 0,
@@ -393,16 +256,154 @@
       ]
     },
     {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": {
+        "0": -340,
+        "1": 460
+      },
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            3,
+            5
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8,
+            12
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "Juggernaut-XL-inpainting.safetensors"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 50,
+        "1": 185
+      },
+      "size": {
+        "0": 422.84503173828125,
+        "1": 164.31304931640625
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            14
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "cloud, blue sky,"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "ImagePadForOutpaint",
+      "pos": {
+        "0": 136,
+        "1": 775
+      },
+      "size": {
+        "0": 315,
+        "1": 174
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            20
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            21
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImagePadForOutpaint"
+      },
+      "widgets_values": [
+        0,
+        248,
+        0,
+        0,
+        124
+      ]
+    },
+    {
       "id": 3,
       "type": "KSampler",
       "pos": {
         "0": 863,
         "1": 186
       },
-      "size": [
-        315,
-        474
-      ],
+      "size": {
+        "0": 315,
+        "1": 474
+      },
       "flags": {},
       "order": 7,
       "mode": 0,
@@ -442,11 +443,11 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        1104666750933885,
+        424399893534059,
         "fixed",
-        8,
-        2,
-        "dpmpp_sde",
+        30,
+        3,
+        "dpmpp_2m_sde",
         "karras",
         1
       ]
@@ -586,11 +587,11 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5730855330116841,
-      "offset": [
-        827.6002784065695,
-        -77.7214604479639
-      ]
+      "scale": 0.8264462809917354,
+      "offset": {
+        "0": 410.96405029296875,
+        "1": -22.01988983154297
+      }
     }
   },
   "version": 0.4
