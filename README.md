@@ -10,7 +10,7 @@ Coloso「生成AIクリエイティブ AICU」シリーズ
 
 ## 「超入門：Stable Diffusionではじめる画像生成AI」
 
-https://j.aicu.ai/coloso1>
+<https://j.aicu.ai/coloso1>
 
 https://www.youtube.com/watch?v=J7VikMNfS50
 
@@ -23,5 +23,5 @@ https://www.youtube.com/watch?v=9A3Tv7L0Y3c
 
 ## 「ComfyUIマスター：カスタムノードとアプリ開発」
 
-<https://j.aicu.ai/Coloso3>
+<https://j.aicu.ai/coloso3>
 
