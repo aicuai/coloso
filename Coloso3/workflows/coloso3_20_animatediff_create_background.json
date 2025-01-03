@@ -875,7 +875,7 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "campfire.jpg",
+        "campfire.png",
         "image"
       ]
     },
