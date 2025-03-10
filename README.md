@@ -25,3 +25,5 @@ https://www.youtube.com/watch?v=9A3Tv7L0Y3c
 
 <https://j.aicu.ai/coloso3>
 
+- [ComfyUIが起動しない！「comfyui-frontend-package is not installed」解説と解決方法はこちら](https://note.com/aicu/n/n81d0ba969aae)
+- [共有ComfyUI](https://www.aicu.jp/)
